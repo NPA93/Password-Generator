@@ -1,89 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Javascript Training</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">  
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
-    
-</head>
-
-<body>
-
+  <body>
     <section>
-        
-        <div class="container">
-
-            <div class="initial-text">
-                <h1>
-                    <span class="line h1-white">Generate a </span>
-                    <span class="line h1-green">Random password</span>
-                </h1>
-            </div>
-            
-            <p class="subhead-text">Never use an insecure password again</p>
-    
-            <div class="boton">
-                <button onclick="generatePassword()" id="generate-button">Generate password</button>
-            </div>
-
-            <div class="divider-line"></div>
-
-            <div id="password-input">
-                <p id="password-text"></p>
-                <span id="copy-icon" onclick="copy()" class="material-icons">content_copy</span>
-                <span id="tooltip" class="tooltip">Copied!</span>
-            </div>
-
-            <div class="settings">
-                <div class="options">
-
-                    <div class="checkbox-letters">
-                        <label><input type="checkbox" id="use-upper" checked> Uppercase</label>
-                        <label><input type="checkbox" id="use-lower" checked> Lowercase</label>
-                    </div>
-
-                    <div class="checkbox-numbers">
-                        <label><input type="checkbox" id="use-numbers" checked> Numbers</label>
-                        <label><input type="checkbox" id="use-special" checked> Symbols</label>
-                    </div>
-
-                </div>
-
-                <div class="slider">
-
-                    <div class="slider-text">
-                        <label for="password-length">Password Length:</label>
-                        <span id="length-display">13</span>
-                    </div>
-                    
-                    <input type="range" id="password-length" min="7" max="20" value="13">
-
-                </div>
-
-            </div>
-            
-            
-            
-
+      <div class="container">
+        <div class="initial-text">
+          <h1>
+            <span class="line h1-white">Generate a </span>
+            <span class="line h1-green">Random password</span>
+          </h1>
         </div>
 
+        <p class="subhead-text">Never use an insecure password again</p>
+
+        <div class="boton">
+          <button onclick="generatePassword()" id="generate-button">
+            Generate password
+          </button>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div id="password-input">
+          <p id="password-text"></p>
+          <span id="copy-icon" onclick="copy()" class="material-icons"
+            >content_copy</span
+          >
+          <span id="tooltip" class="tooltip">Copied!</span>
+        </div>
+
+        <div class="settings">
+          <div class="options">
+            <div class="checkbox-letters">
+              <label
+                ><input type="checkbox" id="use-upper" checked />
+                Uppercase</label
+              >
+              <label
+                ><input type="checkbox" id="use-lower" checked />
+                Lowercase</label
+              >
+            </div>
+
+            <div class="checkbox-numbers">
+              <label
+                ><input type="checkbox" id="use-numbers" checked />
+                Numbers</label
+              >
+              <label
+                ><input type="checkbox" id="use-special" checked />
+                Symbols</label
+              >
+            </div>
+          </div>
+
+          <div class="slider">
+            <div class="slider-text">
+              <label for="password-length">Password Length:</label>
+              <span id="length-display">13</span>
+            </div>
+
+            <input
+              type="range"
+              id="password-length"
+              min="7"
+              max="20"
+              value="13"
+            />
+          </div>
+        </div>
+      </div>
     </section>
 
-
-<script src="script.js"></script>
-
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
