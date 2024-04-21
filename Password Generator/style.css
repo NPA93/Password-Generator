@@ -58,12 +58,12 @@ h1 {
   padding: 9px 15px;
   border-radius: 4px;
   margin-top: 56px;
-  background-color: #10b981;
+  background-color: #2e31cb;
   color: white;
   cursor: pointer;
 }
 #generate-button:active {
-  background-color: #0d9668;
+  background-color: #252799;
 }
 
 .divider-line {
