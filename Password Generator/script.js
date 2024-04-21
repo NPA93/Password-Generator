@@ -11,10 +11,6 @@ let passwordCopy = "";
 function generatePassword() {
   let allowedCharacters = [];
 
-  const title = "Password Generator";
-
-  title += "hola";
-
   if (document.querySelector("#use-upper").checked)
     allowedCharacters = allowedCharacters.concat(upperCaseLetters);
 
