@@ -25,7 +25,6 @@ section {
   height: 600px;
   padding: 50px;
   border-radius: 8px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 .initial-text {
@@ -58,12 +57,12 @@ h1 {
   padding: 9px 15px;
   border-radius: 4px;
   margin-top: 56px;
-  background-color: #2e31cb;
+  background-color: #10B981;
   color: white;
   cursor: pointer;
 }
 #generate-button:active {
-  background-color: #252799;
+  background-color: #0b7954;
 }
 
 .divider-line {
