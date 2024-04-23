@@ -66,19 +66,18 @@ function evaluatePassword(password) {
   const size = password.length;
 
   if (size < 8 || (size >= 8 && (!hasUpper && !hasLower))) {
-    strengthIndicator.textContent =
-      "La seguridad de esta contraseña es tan breve como un estornudo, ¡salud!";
-  } else if (size >= 8 && size <= 11 && ((hasUpper || hasLower) && hasNumbers && !hasSpecial)) {
-    strengthIndicator.textContent = "Moderate";
+    strengthIndicator.textContent = "Even a Stormtrooper could hit this target.";
+  // } else if (size >= 8 && size <= 11 && ((hasUpper || hasLower) && hasNumbers && !hasSpecial)) {
+  //   strengthIndicator.textContent = "Moderate";
 
   } else if (size >= 12 && size <= 13 && (hasUpper && hasLower && hasNumbers && hasSpecial)) {
-    strengthIndicator.textContent = "Strong";
+    strengthIndicator.textContent = "This password is the One Ring of passwords — hard to find and harder to break.";
 
   } else if (size >= 14 && (hasUpper && hasLower && hasNumbers && hasSpecial)) {
-    strengthIndicator.textContent = "Very Strong";
+    strengthIndicator.textContent = "As unbreakable as adamantium.";
 
   } else {
-    strengthIndicator.textContent = "Moderate";
+    strengthIndicator.textContent = "Just 'Moderate'—meh, it's okay.";
 
 }
 }
