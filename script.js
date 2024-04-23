@@ -4,9 +4,7 @@ const numbers = "0123456789".split("");
 const specialCharacters = "~`!@#$%^&*()-_+=[]{}|:;<>.,?/".split("");
 
 let textEl = document.querySelector("#password-text");
-let passwordLenght = 15;
-
-let passwordCopy = "";
+let currentPasswordLenght = 15;
 
 function generatePassword() {
   let allowedCharacters = [];
@@ -26,16 +24,18 @@ function generatePassword() {
   if (allowedCharacters.length === 0) return alert("Must select an option");
 
   textEl.textContent = "";
-  for (let i = 0; i < passwordLenght; i++) {
+  for (let i = 0; i < currentPasswordLenght; i++) {
     let randomNumber = Math.floor(Math.random() * allowedCharacters.length);
     textEl.textContent += allowedCharacters[randomNumber];
   }
 
   document.querySelector("#copy-icon").classList.add("enable");
+
+  evaluatePassword(textEl.textContent);
 }
 
 function copy() {
-  passwordCopy = document.querySelector("#password-text").textContent;
+  let passwordCopy = document.querySelector("#password-text").textContent;
 
   navigator.clipboard.writeText(passwordCopy);
 
@@ -53,5 +53,32 @@ const lengthDisplay = document.querySelector("#length-display");
 
 slider.oninput = function () {
   lengthDisplay.textContent = this.value;
-  passwordLenght = this.value;
+  currentPasswordLenght = this.value;
 };
+
+function evaluatePassword(password) {
+  const strengthIndicator = document.querySelector("#password-strength");
+
+  const hasUpper = /[A-Z]/.test(password);
+  const hasLower = /[a-z]/.test(password);
+  const hasNumbers = /[0-9]/.test(password);
+  const hasSpecial = /[~`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+  const size = password.length;
+
+  if (size < 8 || (size >= 8 && (!hasUpper && !hasLower))) {
+    strengthIndicator.textContent =
+      "La seguridad de esta contraseña es tan breve como un estornudo, ¡salud!";
+  } else if (size >= 8 && size <= 11 && ((hasUpper || hasLower) && hasNumbers && !hasSpecial)) {
+    strengthIndicator.textContent = "Moderate";
+
+  } else if (size >= 12 && size <= 13 && (hasUpper && hasLower && hasNumbers && hasSpecial)) {
+    strengthIndicator.textContent = "Strong";
+
+  } else if (size >= 14 && (hasUpper && hasLower && hasNumbers && hasSpecial)) {
+    strengthIndicator.textContent = "Very Strong";
+
+  } else {
+    strengthIndicator.textContent = "Moderate";
+
+}
+}
