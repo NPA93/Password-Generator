@@ -4,6 +4,8 @@ const lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz".split("");
 const numbers = "0123456789".split("");
 const specialCharacters = "~`!@#$%^&*()-_+=[]{}|:;<>.,?/".split("");
 
+const themeSwitcher = document.querySelector("#theme-icon")
+
 let textEl = document.querySelector("#password-text"); //Variable textEl para acceder al password generado en el DOM
 let currentPasswordLenght = 15; // Variable que obtiene la longitud del password.
 
@@ -96,14 +98,11 @@ const evaluatePassword = (password) => {
 }
 
 
-const themeSwitcher = document.querySelector("#theme-icon")
+themeSwitcher.addEventListener('click',() => {
 
-
-let hasDarkMode = true
-
-themeSwitcher.addEventListener('click',() =>{
-
-if (hasDarkMode) {
+  let hasDarkMode = true
+  
+  if (hasDarkMode) {
   themeSwitcher.textContent = "dark_mode"
   hasDarkMode = false
 } else {
