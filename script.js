@@ -7,7 +7,7 @@ const specialCharacters = "~`!@#$%^&*()-_+=[]{}|:;<>.,?/".split("");
 let textEl = document.querySelector("#password-text"); //Variable textEl para acceder al password generado en el DOM
 let currentPasswordLenght = 15; // Variable que obtiene la longitud del password.
 
-function generatePassword() {
+const generatePassword = () => {
   let allowedCharacters = [];  //allowedCharacters es el array que contenerá los caracteres de las variables de diferentes tipos.
 
   if (document.querySelector("#use-upper").checked)
@@ -37,7 +37,7 @@ function generatePassword() {
 }
 
 
-function copy() {
+const copy = () => {
   let passwordCopy = document.querySelector("#password-text").textContent;
 
   navigator.clipboard.writeText(passwordCopy);
@@ -46,7 +46,7 @@ function copy() {
 
   tooltip.style.visibility = "visible";
 
-  setTimeout(function () {
+  setTimeout( () => {
     tooltip.style.visibility = "hidden";
   }, 550);
 }
@@ -55,13 +55,13 @@ function copy() {
 const slider = document.querySelector("#password-length");
 const lengthDisplay = document.querySelector("#length-display");
 
-slider.oninput = function () {
-  lengthDisplay.textContent = this.value;
-  currentPasswordLenght = this.value;
+slider.oninput = () => {
+  lengthDisplay.textContent = slider.value;
+  currentPasswordLenght = slider.value;
 };
 
 //La función (evaluatePassword) tiene un parametro denominado (password) su finalidad sera que el parametro password sea remplazado por el valor de text.El ( o sea el contenido del texto deL PASSWORD generado)
-function evaluatePassword(password) {
+const evaluatePassword = (password) => {
   const strengthIndicator = document.querySelector("#password-strength");
   const passwordStrengthBar = document.querySelector("#password-strength-bar");
   
@@ -83,14 +83,48 @@ function evaluatePassword(password) {
     strengthIndicator.textContent = "Moderate";
   } else if (size >= 12 && size <= 14) {
     barWidth = 70; // Representa un 70% del ancho de la barra
-    barColor = "#ffff3e"; // Amarillo, bueno
+    barColor = "#e0d12c"; // Amarillo, bueno
     strengthIndicator.textContent = "This password is the One Ring of passwords — hard to find and harder to break.";
   } else if (size >= 15) {
     barWidth = 100; // Representa un 100% del ancho de la barra
-    barColor = "#3eff3e"; // Verde, fuerte
+    barColor = "#32c532"; // Verde, fuerte
     strengthIndicator.textContent = "As unbreakable as adamantium.";
   }
 
   passwordStrengthBar.style.width = `${barWidth}%`;
   passwordStrengthBar.style.backgroundColor = barColor;
 }
+
+
+const themeSwitcher = document.querySelector("#theme-icon")
+
+
+let hasDarkMode = true
+
+themeSwitcher.addEventListener('click',() =>{
+
+if (hasDarkMode) {
+  themeSwitcher.textContent = "dark_mode"
+  hasDarkMode = false
+} else {
+  themeSwitcher.textContent = "light_mode"
+  hasDarkMode = true
+}
+
+    document.querySelector("#generate-button").classList.toggle('light-mode')
+    document.querySelector(".container").classList.toggle('light-mode')
+    document.querySelector(".h1-top").classList.toggle('light-mode')
+    document.querySelector(".h1-bottom").classList.toggle('light-mode')
+    document.querySelector(".subhead-text").classList.toggle('light-mode')
+    document.querySelector(".divider-line").classList.toggle('light-mode')
+    document.querySelector("#password-input").classList.toggle('light-mode')
+    document.querySelector(".settings").classList.toggle('light-mode')
+    document.querySelector("#length-display").classList.toggle('light-mode')
+    document.querySelector("#password-text").classList.toggle('light-mode')
+    document.querySelector("#theme-icon").classList.toggle('light-mode')
+    document.querySelector("body").classList.toggle('light-mode')
+    document.querySelector("material-icons").classList.toggle('light-mode')
+    
+})
+
+
